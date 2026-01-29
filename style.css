@@ -1,0 +1,218 @@
+html{
+    box-sizing: border-box;
+}
+
+/* Resetare globală pentru toate elementele și pseudo-elementele cu caracteristicile specifice*/
+*,
+* ::before,
+* ::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* Definirea unor variabile în CSS*/
+:root{
+    --background-color:#12372A;
+    --hover-color:#436850;
+    --font-color:#daffff;
+    --accent-color1:#F5F5F5;
+    --accent-color2:#fbfada46;
+    --accent-color3:#016a70;
+    --accent-color4:#16404D;
+    --border-radius:10px;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 70px;
+    padding: 0;
+    margin: 0;  
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content{
+    flex: 1;
+}
+/* Cod personalizat pentru bara de navigare*/
+.navbar{ 
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    left: 0;
+    z-index: 1050; 
+    background-color:var(--background-color);
+}
+
+.navbar-nav{
+    justify-content: flex-start !important;
+    align-items: flex-start !important; 
+    padding-left: 1rem;
+}
+
+.dropdown-menu{
+    background: var(--background-color);
+    padding: 0 10px;
+}
+
+.nav-link{
+    margin: .312rem;
+    color: var(--font-color);
+}
+
+.nav-link:hover{
+    color: var(--hover-color);
+}
+
+.dropdown-item:hover{
+    background: none;
+}
+
+.dropdown-item:active{
+    color: inherit;
+    background-color: none;
+}
+
+.navbar-toggler:hover{
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+/* Bara de navigare adaptată pentru ecranele <768px */
+@media(max-width:767px){
+    body.navbar-open{
+        padding-top:356px;
+    }
+
+    .navbar-nav{
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color:var(--background-color);
+        overflow-y: auto;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .navbar-collapse.show{
+        overflow-y: auto;
+        padding-top: 0px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .dropdown-item:hover{
+        background: none;
+    }
+
+
+
+    .navbar-nav .nav-link{
+        padding: 15px 0;
+        color: white !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link:hover{
+        color: var(--hover-color)!important;
+    }
+
+    .nav-link{
+        margin: 0;
+    }
+}
+
+
+/* Cod pentru pagina contact */
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-control:focus{
+    border-color: var(--hover-color);
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: var(--background-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    color: var(--font-color);
+}
+
+.btn-primary:active{
+    background-color: var(--hover-color)!important;
+    border-color: transparent!important;
+}
+
+
+.form-check-input:focus{
+    box-shadow: none;
+    border-color: var(--hover-color);
+}
+
+.map-container {
+    position: relative;
+    padding-bottom: 75%; /* Raport de aspect 4:3 (400px înălțime / 533px lățime la 100% lățime) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px; /* Îi dăm și hărții colțuri rotunjite */
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: 100px ;
+}
+
+/* Ajustare pentru ecrane mai mici, unde coloanele se suprapun */
+@media (max-width: 767.98px) {
+    .container {
+        padding: 20px;
+    }
+    .map-container iframe{
+        padding-bottom: 10%; /* Ajustează raportul de aspect pentru ecrane mici */
+        margin-left: 5px;
+    }
+}
+
+
+/* Footer */
+footer{
+    background-color: var(--background-color);
+    padding: 20px 0;
+   /* margin-top: 20px; */
+   width: 100%;
+   color: var(--font-color);
+}
+
+
+
+/* 3. Efectul de Hover (Aici alegi culoarea dorită) */
+footer a:hover i, 
+footer a:hover svg {
+    color: var(--hover-color) !important; /* Exemplu: un auriu/portocaliu care merge cu cafeaua */
+    transform: translateY(-3px); /* Opțional: iconița se ridică puțin la hover */
+}
+
+
